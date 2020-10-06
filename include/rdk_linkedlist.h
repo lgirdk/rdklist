@@ -41,10 +41,16 @@ typedef void (*fnRDKListCustomFree) (void* pUserData);
 typedef void (*fnRDKListCustomExecute) (void* pUserData, void* pUserActionData);
 
 rdkList_t* rdk_list_add_node (rdkList_t* rdkListHndl, void* pData);
+rdkList_t* rdk_list_prepend_node (rdkList_t* rdkListHndl, void* pData);
+rdkList_t* rdk_list_add_node_before(rdkList_t* rdkListHndl, rdkList_t* sibling, void* pData);
+
 void rdk_list_delete_node (rdkList_t* rdkListHndl);
+rdkList_t* rdk_list_remove_node (rdkList_t* rdkListHndl, rdkList_t* node);
+rdkList_t* rdk_list_remove (rdkList_t* rdkListHndl, const void *pData);
 
 rdkList_t* rdk_list_find_first_node (rdkList_t* rdkListHndl);
 rdkList_t* rdk_list_find_next_node (rdkList_t* rdkListHndl);
+rdkList_t* rdk_list_find_previous_node (rdkList_t* rdkListHndl);
 rdkList_t* rdk_list_find_node_custom (rdkList_t* rdkListHndl, void* pData, fnRDKListCustomCompare compareFunction);
 
 void rdk_list_foreach (rdkList_t* rdkListHndl, fnRDKListCustomExecute executeFunction, void* pUserActionData);
@@ -52,6 +58,7 @@ void rdk_list_foreach (rdkList_t* rdkListHndl, fnRDKListCustomExecute executeFun
 void rdk_list_free_all_nodes (rdkList_t* rdkListHndl);
 void rdk_list_free_all_nodes_custom (rdkList_t* rdkListHndl, fnRDKListCustomFree freeFunction);
 
+rdkList_t* rdk_list_reverse(rdkList_t* rdkListHndl);
 
 #endif /* _RDK_LINKEDLIST_H_ */
 
