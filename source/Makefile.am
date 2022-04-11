@@ -16,7 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ##########################################################################
+
 lib_LTLIBRARIES = librdklist.la
-librdklist_la_CPPFLAGS = -D_ANSC_LINUX -D_ANSC_USER -D_ANSC_LITTLE_ENDIAN_ -I$(top_srcdir)/include
+
+librdklist_la_CPPFLAGS = -I$(top_srcdir)/include
 librdklist_la_SOURCES = rdk_linkedlist.c
 librdklist_la_LDFLAGS = -shared
